@@ -1,0 +1,25 @@
+{
+  "name": "karma-jasmine-sample",
+  "version": "0.0.1",
+  "description": "An example of using the Karma test runner with lambdatest's selenium cloud grid to run JavaScript unit tests",
+  "main": "karma.lambdatestconf.js",
+  "scripts": {
+    "test": "karma start karma.lambdatestconf.js"
+  },
+  "homepage": "https://github.com/lambdatest/karma-jasmine-sample",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lambdatest/karma-jasmine-sample.git"
+  },
+  "author": "lambdatest",
+  "license": "MIT",
+  "devDependencies": {
+    "karma": "^4.0.1",
+    "karma-chrome-launcher": "^0.1.2",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-safari-launcher": "^0.1.1",
+    "karma-webdriver-launcher": "^1.0.5",
+    "karma-mocha-reporter": "^0.3.1",
+    "karma-jasmine": "^0.2.2"
+  }
+}
