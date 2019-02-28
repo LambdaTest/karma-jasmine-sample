@@ -36,7 +36,7 @@
     $ npm install
     ```
 
-This example will run [jasmine](http://jasmine.github.io/2.0/introduction.html) tests in Chrome and Firefox on your machine. To add more browsers, check the `karma.conf.js`'s `browsers` array.
+This example will run [jasmine](http://jasmine.github.io/2.0/introduction.html) tests in Chrome on your machine.
 
 To use Karma with LambdaTest, make sure you have the 2 environment variables LT_USERNAME and LT_ACCESS_KEY set. To obtain a username and access_key, sign up for free [here](https://lambdatest.com)).
 
@@ -58,6 +58,10 @@ Some Safari & IE browsers, doesn't support automatic resolution of the URL strin
 
     ```
     $ karma start karma.conf.js
+    ```
+    or 
+     ```
+    $ npm test
     ```
 
 ### Browser Launcher Configuration
