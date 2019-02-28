@@ -52,7 +52,7 @@ Some Safari & IE browsers, doesn't support automatic resolution of the URL strin
 
 ### Running Tests
 
-* Tests in Parallel:
+* To Start Test:
     - Navigate to karma-jasmine-sample
     - Run following command
 
