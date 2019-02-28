@@ -2,7 +2,7 @@
 # karma-jasmine-sample
 ![LambdaTest Logo](https://www.lambdatest.com/static/images/logo.svg)
 
-> An example of using the [Karma](http://karma-runner.github.io/) test runner with [LambdaTest](https://LambdaTest.com)' browser cloud to run JavaScript unit tests.
+> An example of using the [Karma](http://karma-runner.github.io/) test runner with [LambdaTest](https://LambdaTest.com) selenium cloud grid to run JavaScript unit tests.
 ---
 
 ### Environment Setup
