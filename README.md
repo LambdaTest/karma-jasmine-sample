@@ -55,13 +55,17 @@ Some Safari & IE browsers, doesn't support automatic resolution of the URL strin
 * To Start Test:
     - Navigate to karma-jasmine-sample
     - Run following command
-
+   * Test in Single
     ```
     $ karma start karma.conf.js
     ```
     or 
      ```
     $ npm test
+    ```
+    * Test in Parallel
+     ```
+    $ karma start karma.parallelconf.js
     ```
 
 ### Browser Launcher Configuration
