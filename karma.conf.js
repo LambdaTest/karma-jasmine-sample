@@ -12,7 +12,7 @@ module.exports = function(config) {
   }
 
   config.set({
-      hostname: 'localhost', // hostname, where karma web server will run
+      hostname: 'localhost.lambdatest.com', // hostname, where karma web server will run
       port: 9876,
       basePath: './',
       frameworks: ['jasmine'],
@@ -42,18 +42,18 @@ module.exports = function(config) {
       colors: true,
       concurrency: 1,
       logLevel: config.LOG_DEBUG,
-      browsers: ['chrome'],
+      browsers: ['Win8.1_chrome_71'],
       customLaunchers: {
-          chrome: {
+        'Win8.1_chrome_71': {
               base: 'WebDriver',
               config: webdriverConfig,
               browserName: 'chrome',
-              platform: 'windows 10',
-              version: '71.0',
-              build: 'Jasmine Unit Test',
-              name: 'Karma Jasmine Sample',
+              platform: 'Windows 8.1',
+              version: '71',
+              build: 'Jasmine Unit Test Demo',
+              name: 'Karma jasmine Sample',
               tunnel: true, // In case karma is running on local machine
-//              tunnelName:'jasmine', // In case running multiple tunnel
+              tunnelName:'jasmine', // In case running multiple tunnel
               video: true, // capture video for your test
               visual: true, // capture screenshots on each step
               network: true, // capture network logs for your test
