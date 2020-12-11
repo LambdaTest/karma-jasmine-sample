@@ -11,4 +11,4 @@ tasks:
   - before: wget https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip && unzip LT_Linux.zip 
     init: npm install
     command: ./LT  --user $LT_USERNAME --key $LT_ACCESS_KEY --tunnelName jasmine &
-  - command: sleep 10 && npm test
+  - command: sleep 25 && npm test
