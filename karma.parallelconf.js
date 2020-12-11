@@ -53,7 +53,7 @@ module.exports = function(config) {
               build: 'Jasmine Unit Test Demo',
               name: 'Karma jasmine Sample',
               tunnel: true, // In case karma is running on local machine
-//              tunnelName:'jasmine', // In case running multiple tunnel
+              tunnelName:'jasmine', // In case running multiple tunnel
               user: process.env.LT_USERNAME,
               accessKey: process.env.LT_ACCESS_KEY,
               pseudoActivityInterval: 15000 // 5000 ms heartbeat

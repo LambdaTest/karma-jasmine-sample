@@ -49,11 +49,11 @@ module.exports = function(config) {
               config: webdriverConfig,
               browserName: 'chrome',
               platform: 'Windows 8.1',
-              version: '71',
+              version: 'latest',
               build: 'Jasmine Unit Test Demo',
               name: 'Karma jasmine Sample',
               tunnel: true, // In case karma is running on local machine
-//              tunnelName:'jasmine', // In case running multiple tunnel
+              tunnelName:'jasmine', // In case running multiple tunnel
               video: true, // capture video for your test
               visual: true, // capture screenshots on each step
               network: true, // capture network logs for your test
