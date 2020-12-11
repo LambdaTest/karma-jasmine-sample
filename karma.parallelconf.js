@@ -49,15 +49,11 @@ module.exports = function(config) {
               config: webdriverConfig,
               browserName: 'chrome',
               platform: 'Windows 8.1',
-              version: '71',
+              version: 'latest',
               build: 'Jasmine Unit Test Demo',
               name: 'Karma jasmine Sample',
               tunnel: true, // In case karma is running on local machine
 //              tunnelName:'jasmine', // In case running multiple tunnel
-              video: true, // capture video for your test
-              visual: true, // capture screenshots on each step
-              network: true, // capture network logs for your test
-              console: true, // capture browser console logs
               user: process.env.LT_USERNAME,
               accessKey: process.env.LT_ACCESS_KEY,
               pseudoActivityInterval: 15000 // 5000 ms heartbeat
@@ -67,15 +63,11 @@ module.exports = function(config) {
             config: webdriverConfig,
             browserName: 'internet explorer',
             platform: 'Windows 10',
-            version: '11',
+            version: 'latest',
             build: 'Jasmine Unit Test Demo',
             name: 'Karma jasmine Sample',
             tunnel: true, // In case karma is running on local machine
             tunnelName:'jasmine', // In case running multiple tunnel
-            video: true, // capture video for your test
-            visual: true, // capture screenshots on each step
-            network: true, // capture network logs for your test
-            console: true, // capture browser console logs
             user: process.env.LT_USERNAME,
             accessKey: process.env.LT_ACCESS_KEY,
             pseudoActivityInterval: 15000 // 5000 ms heartbeat
@@ -85,15 +77,11 @@ module.exports = function(config) {
             config: webdriverConfig,
             browserName: 'safari',
             platform: 'macOS High Sierra',
-            version: '11',
+            version: 'latest',
             build: 'Jasmine Unit Test Demo',
             name: 'Karma jasmine Sample',
             tunnel: true, // In case karma is running on local machine
             tunnelName:'jasmine', // In case running multiple tunnel
-            video: true, // capture video for your test
-            visual: true, // capture screenshots on each step
-            network: true, // capture network logs for your test
-            console: true, // capture browser console logs
             user: process.env.LT_USERNAME,
             accessKey: process.env.LT_ACCESS_KEY,
             pseudoActivityInterval: 15000 // 5000 ms heartbeat
@@ -103,15 +91,11 @@ module.exports = function(config) {
             config: webdriverConfig,
             browserName: 'MicrosoftEdge',
             platform: 'Windows 10',
-            version: '18',
+            version: 'latest',
             build: 'Jasmine Unit Test Demo',
             name: 'Karma jasmine Sample',
             tunnel: true, // In case karma is running on local machine
             tunnelName:'jasmine', // In case running multiple tunnel
-            video: true, // capture video for your test
-            visual: true, // capture screenshots on each step
-            network: true, // capture network logs for your test
-            console: true, // capture browser console logs
             user: process.env.LT_USERNAME,
             accessKey: process.env.LT_ACCESS_KEY,
             pseudoActivityInterval: 15000 // 5000 ms heartbeat
