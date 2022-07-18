@@ -97,6 +97,31 @@ describe('updateAppState', function () {
     });
 });
 ```
+
+## Testing Locally Hosted or Privately Hosted Projects
+
+To help you perform cross browser testing of your locally stored web pages, LambdaTest provides an SSH(Secure Shell) tunnel connection with the name LambdaTest tunnel. With LambdaTest tunnel, you can run your Jasmine tests using Karma to perform automated cross browser testing on browsers offered by online Selenium Grid at LambdaTest. So you make sure how well your changes look, even before your customers. Curious to know more about LambdaTest tunnel?
+
+> Follow our documentation on LambdaTest tunnel to know it all. OS specific instructions to download and setup tunnel binary can be found at the following links.
+ * [Documentation For Windows User](/docs/local-testing-for-windows/)
+ * [Documentation For Mac User](/docs/local-testing-for-macos/)
+ * [Documentation For Linux User](/docs/local-testing-for-linux/)
+
+> Download the binary file of:
+ * [LambdaTest tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
+ * [LambdaTest tunnel for Mac](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
+ * [LambdaTest tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
+
+Once, the tunnel is successfully set up. You can add the below code to your capabilities for testing internal servers on your network.
+
+``` js
+//Test Websites Using Localhost
+customLaunchers: { chrome: {
+        tunnel: true, // In case karma is running on local machine
+    }   }
+```
+> **Important Note**: Some Safari & IE browsers don’t support automatic resolution of the URL string “localhost”. Therefore if you test on URLs like "`http://localhost/`" or "`http://localhost:8080`" etc, you would get an error in these browsers. A possible solution is to use "`localhost.lambdatest.com`" or replace the string “localhost” with machine IP address. For example, if you wanted to test "`http://localhost/dashboard`" or, and your machine IP is 192.168.2.6 you can instead test on "`http://192.168.2.6/dashboard`" or "`http://localhost.lambdatest.com/dashboard`".
+
 ## Run Your First Test
 
 Navigate to the directory where you cloned the [sample of Karma-Jasmine](https://github.com/LambdaTest/karma-jasmine-sample) and run the following command.
@@ -128,30 +153,6 @@ customLaunchers: {
 ```
 
 The most important capabilities to understand here are ‘browserName’, ‘version’, and ‘platform’. They define which browser environment you wish to run the test on. Rest of the capabilities are important in test management and debugging. We have an inbuilt [Capabilities Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample) tool as well that you use to generate capabilities code for your test suite.
-
-## Testing Locally Hosted or Privately Hosted Projects
-
-To help you perform cross browser testing of your locally stored web pages, LambdaTest provides an SSH(Secure Shell) tunnel connection with the name LambdaTest tunnel. With LambdaTest tunnel, you can run your Jasmine tests using Karma to perform automated cross browser testing on browsers offered by online Selenium Grid at LambdaTest. So you make sure how well your changes look, even before your customers. Curious to know more about LambdaTest tunnel?
-
-> Follow our documentation on LambdaTest tunnel to know it all. OS specific instructions to download and setup tunnel binary can be found at the following links.
- * [Documentation For Windows User](/docs/local-testing-for-windows/)
- * [Documentation For Mac User](/docs/local-testing-for-macos/)
- * [Documentation For Linux User](/docs/local-testing-for-linux/)
-
-> Download the binary file of:
- * [LambdaTest tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
- * [LambdaTest tunnel for Mac](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
- * [LambdaTest tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
-
-Once, the tunnel is successfully set up. You can add the below code to your capabilities for testing internal servers on your network.
-
-``` js
-//Test Websites Using Localhost
-customLaunchers: { chrome: {
-        tunnel: true, // In case karma is running on local machine
-    }   }
-```
-> **Important Note**: Some Safari & IE browsers don’t support automatic resolution of the URL string “localhost”. Therefore if you test on URLs like "`http://localhost/`" or "`http://localhost:8080`" etc, you would get an error in these browsers. A possible solution is to use "`localhost.lambdatest.com`" or replace the string “localhost” with machine IP address. For example, if you wanted to test "`http://localhost/dashboard`" or, and your machine IP is 192.168.2.6 you can instead test on "`http://192.168.2.6/dashboard`" or "`http://localhost.lambdatest.com/dashboard`".
 
 ## Avoid Timeouts With psuedoActivityInternal
 
