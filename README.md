@@ -1,211 +1,134 @@
-# Run Selenium Tests With Jasmine for BDD On LambdaTest
-
-![JavaScript](https://user-images.githubusercontent.com/95698164/172134732-2e9c780e-10ac-4956-b366-86ffc25bf070.png)
+# Run Jasmine Tests with Karma on TestMu AI (Formerly LambdaTest)
 
 <p align="center">
-  <a href="https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample" target="_bank">Blog</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample" target="_bank">Docs</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample" target="_bank">Learning Hub</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/newsletter/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample" target="_bank">Newsletter</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.lambdatest.com/certifications/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample" target="_bank">Certifications</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.youtube.com/c/LambdaTest" target="_bank">YouTube</a>
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://www.npmjs.com/package/karma"><img src="https://img.shields.io/npm/v/karma.svg?style=for-the-badge&labelColor=000000" alt="Karma version"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
 </p>
-&emsp;
-&emsp;
-&emsp;
 
-*Learn how to use Jasmine for BDD framework to configure and run your JavaScript automation testing scripts on the LambdaTest platform*
+## Getting Started
 
-[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register)
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-## Table Of Contents
+With TestMu AI (Formerly LambdaTest), you can run JavaScript Jasmine tests with Karma. This sample shows how to configure Karma + Jasmine to run on the TestMu AI cloud.
 
-* [Pre-requisites](#pre-requisites)
-* [Run Your First Test](#run-your-first-test)
-* [Avoid Timeouts With psuedoActivityInternal](#avoid-timeouts-with-psuedoactivityinternal)
-* [Testing Locally Hosted or Privately Hosted Projects](#testing-locally-hosted-or-privately-hosted-projects)
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
-## Pre-requisites 
+### Prerequisites
 
-In order to perform your karma tests with LambdaTest, you would need the below things to be already set up:
+- Node.js (latest recommended): download from [nodejs.org](https://nodejs.org/en/)
+- karma-cli: `npm install -g karma-cli`
+- A [TestMu AI](https://www.testmuai.com/) account with your username and access key
 
-#### 1. Global Dependencies
+### Setup
 
-* Make sure to use the latest version of JavaScript.
-* A [Git or GitHub repository](https://github.com/)
-* Download and [install node.js](https://nodejs.org/en/) and node package manager or npm.
-* To install node.js with homebrew use the below command.
+Clone and install dependencies:
 
-`$ brew install node`
-
-* If you have npm already installed, you may want to upgrade it to latest version. Here the code you can run in your terminal to upgrade npm.
-
-`npm install npm@latest -g`
-
-#### 2. LambdaTest Authentication Credentials
-
-Be aware of your LambdaTest authentication credentials i.e. your LambdaTest username, access key and HubURL. You need to set them up as your environment variables. You can retrieve them from your [LambdaTest automation dashboard](https://automation.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample) by clicking on the key icon near the help button.
-
-* **For Linux/Mac:**
 ```bash
-$ export LT_USERNAME=<YOUR_LAMBDATEST_USERNAME> 
-$ export LT_ACCESS_KEY=<YOUR_LAMBDATEST_ACCESS_KEY>
+git clone https://github.com/LambdaTest/karma-jasmine-sample && cd karma-jasmine-sample
+npm install -g karma-cli && npm install
 ```
 
-* **For Windows:**
+Set your credentials as environment variables.
+
+**macOS / Linux:**
+
 ```bash
-$ set LT_ACCESS_KEY=<YOUR_LAMBDATEST_ACCESS_KEY>
-$ set LT_ACCESS_KEY=<YOUR_LAMBDATEST_ACCESS_KEY>
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+export LT_TUNNEL="YOUR_TUNNEL_NAME"
 ```
 
-### Setting Up The Environment For Jasmine Testing Using Selenium
+**Windows:**
 
-You need to clone our [GitHub repository](https://github.com/LambdaTest/protractor-selenium-sample) which demonstrates a [sample of Karma-Jasmine](https://github.com/LambdaTest/karma-jasmine-sample).
-
-After cloning, you need to navigate to the cloned directory and install project dependencies using the below command:
-
-`$ npm install`
-
-The example mentioned below would help you to perform Jasmine testing in Google Chrome.
-
-``` js
-describe('add', function () {
-    it('should add two numbers and return the result', function () {
-        expect(window.add(1, 2)).toBe(3);
-    });
-});
- 
-describe('subtract', function () {
-    it('should subtract two numbers', function () {
-        expect(window.subtract(2, 1)).toBe(1);
-    });
-});
- 
-describe('updateAppState', function () {
-    it('should push a new state into the browser history', function () {
-        window.updateAppState({
-            message: 'Getting Started with LambdaTest'
-        });
-        expect(window.history.state).toEqual({
-            message: 'Getting Started with LambdaTest'
-        })
-    });
-});
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+set LT_TUNNEL="YOUR_TUNNEL_NAME"
 ```
 
-## Testing Locally Hosted or Privately Hosted Projects
+### Run tests
 
-To help you perform cross browser testing of your locally stored web pages, LambdaTest provides an SSH(Secure Shell) tunnel connection with the name LambdaTest tunnel. With LambdaTest tunnel, you can run your Jasmine tests using Karma to perform automated cross browser testing on browsers offered by online Selenium Grid at LambdaTest. So you make sure how well your changes look, even before your customers. Curious to know more about LambdaTest tunnel?
-
-> Follow our documentation on LambdaTest tunnel to know it all. OS specific instructions to download and setup tunnel binary can be found at the following links.
- * [Documentation For Windows User](/docs/local-testing-for-windows/)
- * [Documentation For Mac User](/docs/local-testing-for-macos/)
- * [Documentation For Linux User](/docs/local-testing-for-linux/)
-
-> Download the binary file of:
- * [LambdaTest tunnel for Windows](https://downloads.lambdatest.com/tunnel/v3/windows/64bit/LT_Windows.zip)
- * [LambdaTest tunnel for Mac](https://downloads.lambdatest.com/tunnel/v3/mac/64bit/LT_Mac.zip)
- * [LambdaTest tunnel for Linux](https://downloads.lambdatest.com/tunnel/v3/linux/64bit/LT_Linux.zip)
-
-Once, the tunnel is successfully set up. You can add the below code to your capabilities for testing internal servers on your network.
-
-``` js
-//Test Websites Using Localhost
-customLaunchers: { chrome: {
-        tunnel: true, // In case karma is running on local machine
-    }   }
 ```
-> **Important Note**: Some Safari & IE browsers don’t support automatic resolution of the URL string “localhost”. Therefore if you test on URLs like "`http://localhost/`" or "`http://localhost:8080`" etc, you would get an error in these browsers. A possible solution is to use "`localhost.lambdatest.com`" or replace the string “localhost” with machine IP address. For example, if you wanted to test "`http://localhost/dashboard`" or, and your machine IP is 192.168.2.6 you can instead test on "`http://192.168.2.6/dashboard`" or "`http://localhost.lambdatest.com/dashboard`".
+karma start karma.conf.js
+```
 
-## Run Your First Test
+Or:
 
-Navigate to the directory where you cloned the [sample of Karma-Jasmine](https://github.com/LambdaTest/karma-jasmine-sample) and run the following command.
+```
+npm test
+```
 
-`$ karma start karma.conf.js`
+View results on your TestMu AI dashboard.
 
-or you could also run the test using:
+### Avoid timeouts with `pseudoActivityInterval`
 
-`$ npm test`
+To prevent test timeouts on the TestMu AI cloud, add a heartbeat interval to your Karma `customLaunchers` configuration:
 
-### Browser Launcher Configuration
-
-If you look at ***karma.conf.js*** file you will find that we are passing browser, browser version, and operating system information, along with LambdaTest [Selenium grid](https://www.lambdatest.com/blog/why-selenium-grid-is-ideal-for-automated-browser-testing/) capabilities via capabilities object. The capabilities object in the above code is defined as:
-
-``` js
+```js
 customLaunchers: {
-        chrome: {
-             base: 'WebDriver',
-             config: webdriverConfig,
-             browserName: 'chrome',
-             platform: 'windows 10',
-             version: '71.0',
-             name: 'Karma With Heartbeat',
-             user: process.env.LT_USERNAME,
-             accessKey: process.env.LT_ACCESS_KEY,
-             pseudoActivityInterval: 15000 // 15000 ms heartbeat to avoid timeouts
-        }
-    }
+  chrome: {
+    pseudoActivityInterval: 5000 // 5000 ms heartbeat to avoid timeouts
+  }
+}
 ```
 
-The most important capabilities to understand here are ‘browserName’, ‘version’, and ‘platform’. They define which browser environment you wish to run the test on. Rest of the capabilities are important in test management and debugging. We have an inbuilt [Capabilities Generator](https://www.lambdatest.com/capabilities-generator/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample) tool as well that you use to generate capabilities code for your test suite.
+The `pseudoActivityInterval` defaults to `0`. Set it to a value greater than `0` (for example, `5000` ms) to send regular heartbeats and avoid session timeouts.
 
-## Avoid Timeouts With psuedoActivityInternal
+### Local testing with TestMu AI Tunnel
 
-To make sure our machines are not hold for long due to some incorrect test, we have come up with a restriction on the number of seconds that our machine is kept reserved for you. In cases, where our servers fail to retrieve a request from your local machine for more than 90 seconds, then your tests are aborted from the queue with the error message related to Timeouts.
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
 
-If you wish to avoid such timeouts, you need to make use of the below parameter:
-``` js
-customLaunchers: { chrome: {
- pseudoActivityInterval: 5000 // 5000 ms heartbeat to avoid timeouts
- } }
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+
+Add the following to your capabilities:
+
+```js
+tunnel: true,
 ```
 
-> **Note**: psuedoActivityInternal is presented as a default parameter with a value set to 0. Make sure to provide a value more than 0 in order to avoid the timeouts.
+## Contributions
 
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your Node.js version, OS, and Karma version.
 
-## Documentation & Resources :books:
- 
-Visit the following links to learn more about LambdaTest's features, setup and tutorials around test automation, mobile app testing, responsive testing, and manual testing.
+## TestMu AI (Formerly LambdaTest) Community
 
-* [LambdaTest Documentation](https://www.lambdatest.com/support/docs/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample)
-* [LambdaTest Blog](https://www.lambdatest.com/blog/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample)
-* [LambdaTest Learning Hub](https://www.lambdatest.com/learning-hub/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample)    
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
 
-## LambdaTest Community :busts_in_silhouette:
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
 
-The [LambdaTest Community](https://community.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample) allows people to interact with tech enthusiasts. Connect, ask questions, and learn from tech-savvy people. Discuss best practises in web development, testing, and DevOps with professionals from across the globe 🌎
+## Learning Resources by TestMu AI (Formerly LambdaTest)
 
-## What's New At LambdaTest ❓
+Learn modern testing through tutorials, guides, videos, and weekly updates:
 
-To stay updated with the latest features and product add-ons, visit [Changelog](https://changelog.lambdatest.com/) 
-      
-## About LambdaTest
+* [TestMu AI Blog](https://www.testmuai.com/blog/)
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/)
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI)
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/)
+  
+## LambdaTest is Now TestMu AI
 
-[LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample) is a leading test execution and orchestration platform that is fast, reliable, scalable, and secure. It allows users to run both manual and automated testing of web and mobile apps across 3000+ different browsers, operating systems, and real device combinations. Using LambdaTest, businesses can ensure quicker developer feedback and hence achieve faster go to market. Over 500 enterprises and 1 Million + users across 130+ countries rely on LambdaTest for their testing needs.    
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
 
-### Features
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
 
-* Run Selenium, Cypress, Puppeteer, Playwright, and Appium automation tests across 3000+ real desktop and mobile environments.
-* Real-time cross browser testing on 3000+ environments.
-* Test on Real device cloud
-* Blazing fast test automation with HyperExecute
-* Accelerate testing, shorten job times and get faster feedback on code changes with Test At Scale.
-* Smart Visual Regression Testing on cloud
-* 120+ third-party integrations with your favorite tool for CI/CD, Project Management, Codeless Automation, and more.
-* Automated Screenshot testing across multiple browsers in a single click.
-* Local testing of web and mobile apps.
-* Online Accessibility Testing across 3000+ desktop and mobile browsers, browser versions, and operating systems.
-* Geolocation testing of web and mobile apps across 53+ countries.
-* LT Browser - for responsive testing across 50+ pre-installed mobile, tablets, desktop, and laptop viewports
-    
-[<img height="58" width="200" src="https://user-images.githubusercontent.com/70570645/171866795-52c11b49-0728-4229-b073-4b704209ddde.png">](https://accounts.lambdatest.com/register)
-      
-## We are here to help you :headphones:
+Find the new home for [LambdaTest](https://www.testmuai.com).
 
-* Got a query? we are available 24x7 to help. [Contact Us](support@lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample)
-* For more info, visit - [LambdaTest](https://www.lambdatest.com/?utm_source=github&utm_medium=repo&utm_campaign=karma-jasmine-sample)
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. 
+
+What started as a high-performance cloud testing platform has transformed into an AI-native, multi-agent system powering a connected, end-to-end quality layer. That evolution defined a new identity: LambdaTest evolved into TestMu AI, built for an AI-first future of quality engineering.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
