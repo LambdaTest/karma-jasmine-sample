@@ -13,7 +13,7 @@
 With TestMu AI (Formerly LambdaTest), you can run JavaScript Jasmine tests with Karma. This sample shows how to configure Karma + Jasmine to run on the TestMu AI cloud.
 
 - [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
-- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/jasmine-with-karma-running-jasmine-tests-on-testmu-selenium-grid/) for the full setup walkthrough.
 
 ### Prerequisites
 
